@@ -18,7 +18,7 @@ spec:
         - name: my-registry-key
       containers:
       - name: website
-        image: vickcode/my-website:1.5
+        image: vickcode/my-website:1.6
         ports:
         - containerPort: 3000
 		env:
