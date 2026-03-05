@@ -17,25 +17,25 @@ spec:
       imagePullSecrets:     
         - name: my-registry-key
       containers:
-      - name: website
-        image: vickcode/my-website:1.6
-        ports:
-        - containerPort: 3000
-		env:
-          - name: EMAIL_USER
-            value: "victordickson474@gmail.com"
-          - name: EMAIL_PASS
-            valueFrom:
-              secretKeyRef:
-                name: email-secret
-                key: password
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        - name: website
+          image: vickcode/my-website:1.6
+          ports:
+            - containerPort: 3000
+          env:
+            - name: EMAIL_USER
+              value: "victordickson474@gmail.com"
+            - name: EMAIL_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: email-secret
+                  key: password
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
