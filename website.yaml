@@ -21,6 +21,14 @@ spec:
         image: vickcode/my-website:1.5
         ports:
         - containerPort: 3000
+	env:
+          - name: EMAIL_USER
+            value: "victordickson474@gmail.com"
+          - name: EMAIL_PASS
+            valueFrom:
+              secretKeyRef:
+                name: email-secret
+                key: password
         resources:
           requests:
             memory: "64Mi"
